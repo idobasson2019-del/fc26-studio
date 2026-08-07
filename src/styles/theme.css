@@ -1,0 +1,116 @@
+/* ============ FC 26 Modding Studio — Design System ============ */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Surfaces (dark, layered) */
+  --bg-app: #0a0c10;
+  --bg-base: #0e1116;
+  --bg-panel: #141922;
+  --bg-panel-2: #1a2029;
+  --bg-elevated: #1f2732;
+  --bg-hover: #232c39;
+  --bg-input: #10141b;
+  --bg-overlay: rgba(5, 7, 10, 0.72);
+
+  /* Borders */
+  --border: #232a35;
+  --border-soft: #1a2029;
+  --border-strong: #313b49;
+
+  /* Text */
+  --text: #e8edf4;
+  --text-soft: #a6b0bf;
+  --text-dim: #6b7686;
+  --text-faint: #454e5c;
+
+  /* Brand / Accent */
+  --accent: #16d3a3;
+  --accent-2: #12b892;
+  --accent-glow: rgba(22, 211, 163, 0.15);
+  --accent-soft: rgba(22, 211, 163, 0.10);
+
+  --blue: #3d8bfd;
+  --purple: #9d7bff;
+  --orange: #ff9f45;
+  --pink: #ff5c8a;
+  --red: #ff5761;
+  --green: #34d17c;
+  --yellow: #ffca3a;
+  --cyan: #35d0d8;
+
+  /* Status */
+  --success: #34d17c;
+  --warning: #ffca3a;
+  --danger: #ff5761;
+  --info: #3d8bfd;
+
+  /* Radius */
+  --r-xs: 5px;
+  --r-sm: 8px;
+  --r-md: 11px;
+  --r-lg: 15px;
+  --r-xl: 20px;
+
+  /* Shadows */
+  --sh-sm: 0 1px 3px rgba(0,0,0,.4);
+  --sh-md: 0 6px 20px rgba(0,0,0,.35);
+  --sh-lg: 0 18px 50px rgba(0,0,0,.5);
+  --sh-glow: 0 0 0 1px var(--accent-soft), 0 8px 30px var(--accent-glow);
+
+  /* Layout */
+  --sidebar-w: 264px;
+  --topbar-h: 58px;
+  --statusbar-h: 30px;
+
+  --font: 'Heebo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* Accent theme variants (Settings) */
+[data-accent="blue"]   { --accent:#3d8bfd; --accent-2:#2f7ae8; --accent-glow:rgba(61,139,253,.18); --accent-soft:rgba(61,139,253,.12); }
+[data-accent="purple"] { --accent:#9d7bff; --accent-2:#8a63f5; --accent-glow:rgba(157,123,255,.18); --accent-soft:rgba(157,123,255,.12); }
+[data-accent="orange"] { --accent:#ff9f45; --accent-2:#f78a28; --accent-glow:rgba(255,159,69,.18); --accent-soft:rgba(255,159,69,.12); }
+[data-accent="pink"]   { --accent:#ff5c8a; --accent-2:#f5477a; --accent-glow:rgba(255,92,138,.18); --accent-soft:rgba(255,92,138,.12); }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg-app);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; border: 2px solid var(--bg-base); }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+input, select, textarea { font-family: inherit; }
+
+::selection { background: var(--accent); color: #04120d; }
+
+h1,h2,h3,h4 { font-weight: 700; letter-spacing: -0.02em; }
+
+.mono { font-family: var(--mono); }
+
+/* Scroll area helper */
+.scroll-y { overflow-y: auto; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px);} to {opacity:1; transform:none;} }
+@keyframes pop { from { opacity:0; transform: scale(.96);} to {opacity:1; transform:none;} }
+@keyframes slideIn { from { opacity:0; transform: translateX(-16px);} to {opacity:1; transform:none;} }
+@keyframes spin { to { transform: rotate(360deg);} }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.4;} }
+@keyframes shimmer { 0%{background-position: -400px 0;} 100%{background-position: 400px 0;} }
+
+.anim-fade { animation: fadeIn .35s var(--ease); }
